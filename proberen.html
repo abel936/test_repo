@@ -1,0 +1,87 @@
+
+
+<style>
+	#output{
+		display:inline-block;
+	}
+</style>
+
+<h1>
+	welcome to the party 
+</h1>
+<h2>
+	fill in your desired digits
+</h2>
+
+<input id="invoerveld">
++
+<input id="invoerveld2">
+=
+<!-- <span id="output"></span> -->
+<div id="output"></div>
+<br />
+<br />
+
+<!-- when clicking the button -->
+<input id="mybutton" type=button value="klik" onclick="doen()">
+
+
+<script>
+
+	function doen(){
+		// const names = ["Jaap", "Joep", "Juip"];
+		// substring = "j"
+		
+		var x1 = parseInt(document.getElementById("invoerveld").value);
+		var x2 = parseInt(document.getElementById("invoerveld2").value);
+		// console.log(x);
+		
+		// console.log(names)
+		// if (names.includes(x)){
+		// 	document.getElementById("output").innerHTML = "Hoi " + x;
+		// 	document.getElementById("output").style.backgroundColor = "green";
+		// } else {
+		// 	document.getElementById("output").innerHTML = "Hoi " + x;
+		// 	document.getElementById("output").style.backgroundColor = "red";
+		// }
+		
+		
+		// if (x.includes(substring)){
+		// 	document.getElementById("output").innerHTML = "Hoi " + x;
+		// 	document.getElementById("output").style.backgroundColor = "green";
+		// } else {
+		// 	document.getElementById("output").innerHTML = "Hoi " + x;
+		// 	document.getElementById("output").style.backgroundColor = "red";
+		// }
+		
+		var x3 = x1 + x2
+
+		if (x3 > 10000){
+			document.getElementById("output").style.backgroundColor = "green";
+			x3 += " -- Wow such a high number"
+		} else if (x3 > 1000){
+			document.getElementById("output").style.backgroundColor = "orange";
+			x3 += " -- You're getting there!"
+			} else if (x3 > 0){
+				document.getElementById("output").style.backgroundColor = "red";
+				x3 += " -- Terribly low number, you can do better!"
+				} else {
+					document.getElementById("output").style.backgroundColor = "blue";
+					x3 += " -- I'm sorry, we do require positive numbers!"
+					}
+	
+		
+		document.getElementById("output").innerHTML = x3;
+	}
+
+
+	// when pressing 'Enter' after filling in the last input field
+	var last_input = document.getElementById("invoerveld2");
+	last_input.addEventListener("keypress", function(event) {
+	if (event.key === "Enter") {
+		event.preventDefault();
+		document.getElementById("mybutton").click();
+	}
+});
+
+</script>
